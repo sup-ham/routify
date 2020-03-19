@@ -29,10 +29,11 @@ export function scrollAncestorsToTop(element) {
 }
 
 export const pathToRegex = (str, recursive) => {
+  const { baseUrl, spaEntry } = config
   const suffix = recursive ? '' : '/?$' //fallbacks should match recursively
   str = str.replace(/\/_fallback?$/, '(/|$)')
   str = str.replace(/\/index$/, '(/index)?') //index files should be matched even if not present in url
-  str = '^' + str.replace(MATCH_PARAM, '([^/]+)') + suffix
+  str = '^' + baseUrl + spaEntry + str.replace(MATCH_PARAM, '([^/]+)') + suffix
   return str
 }
 

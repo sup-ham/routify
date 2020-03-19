@@ -1,3 +1,4 @@
+import config from '../tmp/config'
 import { getContext, tick } from 'svelte'
 import { derived, get } from 'svelte/store'
 import { route } from './store'
@@ -129,7 +130,7 @@ export function _url(context, route, routes) {
     for (const [key, value] of Object.entries(params)) {
       path = path.replace(`:${key}`, value)
     }
-    return path
+    return config.baseUrl + config.spaEntry + path
   }
 }
 
