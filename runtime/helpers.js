@@ -313,7 +313,7 @@ export const meta = new Proxy(_meta, {
       props[name] = props[name] || {}
       props[name][getOrigin()] = value
     }
-    
+
     if (window.routify.appLoaded)
       target.batchedUpdate()
     return true
