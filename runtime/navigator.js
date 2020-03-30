@@ -110,7 +110,7 @@ async function runHooksBeforeUrlChange(event) {
 function urlToRoute(url, routes) {
   const mockUrl = new URL(location).searchParams.get('__mock-url')
   url = mockUrl || url
-console.info({url,routes})
+
   const route = routes.find(route => url.match(route.regex))
   if (!route)
     throw new Error(
